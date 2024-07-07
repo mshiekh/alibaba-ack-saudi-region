@@ -17,7 +17,7 @@ provider "alicloud" {
   profile     = "your-profile"
   region      = "me-central-1"
   assume_role {
-    role_arn = "acs:ram::111222333444555:role/operator-role" # Replace with your actual role ARN
+    role_arn = "acs:ram::111222333444555:role/operator-role" # Replace with your actual role ARN for operator-role
   }
 }
 

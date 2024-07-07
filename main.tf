@@ -23,7 +23,7 @@ data "alicloud_instance_types" "cloud_essd" {
 }
 
 module "managed-k8s" {
-  source                = "ack-module"
+  source                = "./ack-module"
   k8s_name_prefix       = "my-ack"
   cluster_spec          = "ack.pro.small"
   vswitch_ids           = [alicloud_vswitch.default.id]

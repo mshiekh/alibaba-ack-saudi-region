@@ -24,7 +24,7 @@ data "alicloud_instance_types" "cloud_essd" {
 
 module "managed-k8s" {
   source                = "ack-module"
-  k8s_name_prefix       = "tf-example"
+  k8s_name_prefix       = "my-ack"
   cluster_spec          = "ack.pro.small"
   vswitch_ids           = [alicloud_vswitch.default.id]
   k8s_pod_cidr          = cidrsubnet("10.0.0.0/8", 8, 36)

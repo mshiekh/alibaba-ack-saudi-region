@@ -4,12 +4,12 @@ data "alicloud_zones" "default" {
 
 resource "alicloud_vpc" "default" {
   vpc_name   = "ack-demo"
-  cidr_block = "10.4.0.0/16"
+  cidr_block = var.vpc_cidr
 }
 
 resource "alicloud_vswitch" "default" {
   vswitch_name = "vswitch-1"
-  cidr_block   = "10.4.0.0/24"
+  cidr_block   = var.vswitch_cidrs[0]
   vpc_id       = alicloud_vpc.default.id
   zone_id      = data.alicloud_zones.default.zones.0.id
 }

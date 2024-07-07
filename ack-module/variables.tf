@@ -142,19 +142,19 @@ variable "cluster_kubeconfig" {
 variable "worker_instance_types" {
   description = "The ecs instance type used to launch worker nodes. If not set, data source `alicloud_instance_types` will return one based on `cpu_core_count` and `memory_size`."
   type        = list(string)
-  default     = ["ecs.c7.xlarge"]
+  default     = ["ecs.c6.xlarge	"]
 }
 
 variable "worker_disk_category" {
   description = "The system disk category used to launch one or more worker nodes."
   type        = string
-  default     = "cloud_efficiency"
+  default     = "cloud_essd"
 }
 
 variable "worker_disk_size" {
   description = "The system disk size used to launch one or more worker nodes."
   type        = number
-  default     = 40
+  default     = 80
 }
 
 variable "worker_number" {

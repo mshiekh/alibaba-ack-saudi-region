@@ -15,7 +15,7 @@ The `provider.tf` file configures the Alibaba Cloud provider. Ensure you update 
 ```hcl
 provider "alicloud" {
   profile     = "your-profile"
-  region      = "cn-saudi-1"
+  region      = "me-central-1"
   assume_role {
     role_arn = "acs:ram::111222333444555:role/operator-role" # Replace with your actual role ARN
   }

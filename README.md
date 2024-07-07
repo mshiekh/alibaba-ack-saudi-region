@@ -50,21 +50,22 @@ Example terraform.tfvars:
   vswitch_id = "your-vswitch-id"
   worker_instance_type = "ecs.c6.large"
   worker_numbers = 2
-
+  ```
 3. **Initialize Terraform:**
    ```bash
    terraform init
-
+   ```
 4. **Plan the Configuration:**
    ```bash
    terraform plan
+   ```
 
 5. **Apply the Configuration:**
    ```bash
    terraform apply
+   ```
 
 Confirm the apply with yes when prompted.
-
 
 6. **Verify the Deployment:**
   After the apply completes, verify that the resources were created successfully in the Alibaba Cloud Console. and the kubeconfig file will be generated, copy it to the `~/.kube/config` and you should be able to list all the worker nodes there

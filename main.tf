@@ -56,30 +56,6 @@ module "managed-k8s" {
   ]
 }
 
-// Check for existing roles
-data "alicloud_ram_roles" "existing_roles" {
-  for_each = { for r in var.roles : r.name => r }
-  name_regex = each.value.name
-}
-
-// Create a role if it does not exist
-resource "alicloud_ram_role" "role" {
-  for_each    = { for r in var.roles : r.name => r if length(data.alicloud_ram_roles.existing_roles[each.key].roles) == 0 }
-  name        = each.value.name
-  document    = each.value.policy_document
-  description = each.value.description
-  force       = true
-}
-
-// Attach a RAM policy to the role.
-resource "alicloud_ram_role_policy_attachment" "attach" {
-  for_each    = { for r in var.roles : r.name => r }
-  policy_name = each.value.policy_name
-  policy_type = "System"
-  role_name   = each.value.name
-  depends_on  = [alicloud_ram_role.role]
-}
-
 // View the roles required by ACK.
 variable "roles" {
   type = list(object({
@@ -168,6 +144,33 @@ variable "roles" {
       policy_name     = "AliyunOOSLifecycleHook4CSRolePolicy"
     }
   ]
+}
 
+// Check for existing roles
+data "alicloud_ram_roles" "existing_roles" {
+  for_each = { for r in var.roles : r.name => r }
+  name_regex = each.value.name
+}
 
+// Define local variable to filter roles that need to be created
+locals {
+  roles_to_create = { for r in var.roles : r.name => r if length(data.alicloud_ram_roles.existing_roles[r.name].roles) == 0 }
+}
+
+// Create a role if it does not exist
+resource "alicloud_ram_role" "role" {
+  for_each    = local.roles_to_create
+  name        = each.value.name
+  document    = each.value.policy_document
+  description = each.value.description
+  force       = true
+}
+
+// Attach a RAM policy to the role if the role was created
+resource "alicloud_ram_role_policy_attachment" "attach" {
+  for_each    = local.roles_to_create
+  policy_name = each.value.policy_name
+  policy_type = "System"
+  role_name   = each.value.name
+  depends_on  = [alicloud_ram_role.role]
 }

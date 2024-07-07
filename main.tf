@@ -56,10 +56,15 @@ module "managed-k8s" {
   ]
 }
 
+// Check for existing roles
+data "alicloud_ram_roles" "existing_roles" {
+  for_each = { for r in var.roles : r.name => r }
+  name_regex = each.value.name
+}
 
-// Create a role.
+// Create a role if it does not exist
 resource "alicloud_ram_role" "role" {
-  for_each    = { for r in var.roles : r.name => r }
+  for_each    = { for r in var.roles : r.name => r if length(data.alicloud_ram_roles.existing_roles[each.key].roles) == 0 }
   name        = each.value.name
   document    = each.value.policy_document
   description = each.value.description

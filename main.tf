@@ -64,9 +64,6 @@ resource "alicloud_ram_role" "role" {
   document    = each.value.policy_document
   description = each.value.description
   force       = true
-lifecycle {
-    prevent_destroy = true
-  }
 }
 
 // Attach a RAM policy to the role.
@@ -76,9 +73,6 @@ resource "alicloud_ram_role_policy_attachment" "attach" {
   policy_type = "System"
   role_name   = each.value.name
   depends_on  = [alicloud_ram_role.role]
-lifecycle {
-    prevent_destroy = true
-  }
 }
 
 // View the roles required by ACK.

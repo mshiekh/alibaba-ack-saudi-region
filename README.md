@@ -28,8 +28,8 @@ This section provides instructions on how to use the Terraform configuration to 
 ### Prerequisites
 
 - Ensure you have [Terraform](https://www.terraform.io/downloads.html) installed on your local machine.
-- Configure the Alibaba Cloud CLI with the necessary credentials.
-- Ensure you have the appropriate permissions and the necessary RAM role for creating resources.
+- Configure the Alibaba Cloud CLI with the necessary credentials. (optional)
+- Ensure you have the appropriate permissions and the necessary RAM role for creating resources. (this setup was used with `AdministratorAccess` assigned to alibaba account)
 
 ### Steps to Use Terraform
 
@@ -68,4 +68,4 @@ Example terraform.tfvars:
 Confirm the apply with yes when prompted.
 
 6. **Verify the Deployment:**
-  After the apply completes, verify that the resources were created successfully in the Alibaba Cloud Console. and the kubeconfig file will be generated, copy it to the `~/.kube/config` and you should be able to list all the worker nodes there
+  After the apply completes, verify that the resources were created successfully in the Alibaba Cloud Console. and the kubeconfig file will be generated `config`, copy it to the `~/.kube/config` or the location where you configure kubeconfig and you should be able to access the ACK cluster

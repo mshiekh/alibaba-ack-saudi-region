@@ -21,3 +21,50 @@ provider "alicloud" {
   }
 }
 
+## How to Use This Terraform Configuration
+
+This section provides instructions on how to use the Terraform configuration to provision an Alibaba Cloud Kubernetes (ACK) cluster in the Saudi region.
+
+### Prerequisites
+
+- Ensure you have [Terraform](https://www.terraform.io/downloads.html) installed on your local machine.
+- Configure the Alibaba Cloud CLI with the necessary credentials.
+- Ensure you have the appropriate permissions and the necessary RAM role for creating resources.
+
+### Steps to Use Terraform
+
+1. **Clone the Repository**:
+   Clone this repository to your local machine:
+   ```bash
+   git clone https://github.com/mshiekh/alibaba-ack-saudi-region.git
+   cd alibaba-ack-saudi-region
+2. **Customize Variables:**
+   Edit the variables.tf file or create a terraform.tfvars file to customize the variables such as the VSwitch ID:
+   ```bash
+   nano terraform.tfvars
+
+Example terraform.tfvars:
+
+  ```hcl
+  ack_cluster_name = "my-ack-cluster"
+  vswitch_id = "your-vswitch-id"
+  worker_instance_type = "ecs.c6.large"
+  worker_numbers = 2
+
+3. **Initialize Terraform:**
+   ```bash
+   terraform init
+
+4. **Plan the Configuration:**
+   ```bash
+   terraform plan
+
+5. **Apply the Configuration:**
+   ```bash
+   terraform apply
+
+Confirm the apply with yes when prompted.
+
+
+6. **Verify the Deployment:**
+  After the apply completes, verify that the resources were created successfully in the Alibaba Cloud Console. and the kubeconfig file will be generated, copy it to the `~/.kube/config` and you should be able to list all the worker nodes there

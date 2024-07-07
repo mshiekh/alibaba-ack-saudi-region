@@ -22,6 +22,36 @@ data "alicloud_instance_types" "cloud_essd" {
   system_disk_category = "cloud_essd"
 }
 
-
-
-
+module "managed-k8s" {
+  source                = "./ack-module"
+  k8s_name_prefix       = "my-ack"
+  cluster_spec          = "ack.pro.small"
+  vswitch_ids           = [alicloud_vswitch.default.id]
+  k8s_pod_cidr          = cidrsubnet("10.0.0.0/8", 8, 36)
+  k8s_service_cidr      = cidrsubnet("172.16.0.0/16", 4, 7)
+  kubernetes_version    = "1.30.1-aliyun.1"
+  worker_instance_types = [data.alicloud_instance_types.cloud_essd.instance_types.0.id]
+  worker_disk_category  = "cloud_essd"
+  cluster_addons = [
+    {
+      name   = "flannel",
+      config = "",
+    },
+    {
+      name   = "flexvolume",
+      config = "",
+    },
+    {
+      name   = "alicloud-disk-controller",
+      config = "",
+    },
+    {
+      name   = "logtail-ds",
+      config = "{\"IngressDashboardEnabled\":\"true\"}",
+    },
+    {
+      name   = "nginx-ingress-controller",
+      config = "{\"IngressSlbNetworkType\":\"internet\"}",
+    },
+  ]
+}

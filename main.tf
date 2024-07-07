@@ -54,4 +54,5 @@ module "managed-k8s" {
       config = "{\"IngressSlbNetworkType\":\"internet\"}",
     },
   ]
+
 }

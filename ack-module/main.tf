@@ -31,6 +31,12 @@ resource "alicloud_cs_managed_kubernetes" "this" {
   client_cert     = var.client_cert_path
   client_key      = var.client_key_path
   cluster_ca_cert = var.cluster_ca_cert_path
+
+  depends_on = [
+    alicloud_ram_role.role,
+    alicloud_ram_role_policy_attachment.attach
+  ]
+
 }
 
 resource "alicloud_cs_kubernetes_node_pool" "this" {

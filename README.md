@@ -20,7 +20,7 @@ provider "alicloud" {
     role_arn = "acs:ram::111222333444555:role/operator-role" # Replace with your actual role ARN for operator-role
   }
 }
-
+```
 ## How to Use This Terraform Configuration
 
 This section provides instructions on how to use the Terraform configuration to provision an Alibaba Cloud Kubernetes (ACK) cluster in the Saudi region.

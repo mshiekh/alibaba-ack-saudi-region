@@ -10,7 +10,7 @@ This repository provides a Terraform configuration to provision an Alibaba Cloud
 
 ## Provider Configuration
 
-The `provider.tf` file configures the Alibaba Cloud provider. Ensure you update the `role_arn` with the existing actual role ARN of 'operator-role'. this is neeeded as the console uses this role to create the resources. you can use the profile configured with aliyun cli or use the ACCESS_KEY and SECRET_KEY. either way, make sure to assume the role of the 'operator-role' or you will face access issue to the cluster
+The `provider.tf` file configures the Alibaba Cloud provider. Ensure you update the `role_arn` with the existing actual role ARN of 'operator-role'. this is needed as the console uses this role to create the resources. you can use the profile configured with aliyun cli or use the ACCESS_KEY and SECRET_KEY. either way, make sure to assume the role of the 'operator-role' or you will face access issue to the cluster
 
 ```hcl
 provider "alicloud" {

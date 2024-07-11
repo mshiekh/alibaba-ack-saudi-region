@@ -1,4 +1,5 @@
-ack_cluster_name = "my-ack-cluster"
-vswitch_id = "your-vswitch-id"
-worker_instance_type = "ecs.c6.large"
-worker_numbers = 2
+vpc_cidr = "10.10.0.0/16"
+vswitch_cidrs = ["10.10.1.0/24"]
+worker_cpu_core_count = 4
+worker_memory_size = 8
+

@@ -47,10 +47,55 @@ Example terraform.tfvars:
 
   ```hcl
   ack_cluster_name = "my-ack-cluster"
-  vswitch_id = "your-vswitch-id"
+  vswitch_cidrs = ["10.10.1.0/24"]
   worker_instance_type = "ecs.c6.large"
   worker_numbers = 2
   ```
+3. **Get the ACCESS_KEY and SECRET_KEY**
+   Go to RAM > Click on your user account > unders **AccessKey** click  the button Create Access Key
+
+4. **Use aliyun cli to configure your profile**
+   I found more convenient to set the profile use aliyun cli and then reference it using  `profile` in the provider.tf. You can check the [example usage](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs#example-usage) and use the method you prefer.
+   follow the steps below and you should get the Welcome message if all is set correctly:
+   ```bash
+   aliyun configure --profile "profilename"
+   aliyun configure --profile "profilename"
+Configuring profile 'profilename' in '' authenticate mode...
+Access Key Id []: #**Copy and paste your Access key**
+Access Key Secret []: #**Copy and paste your Access key**
+Default Region Id []: me-central-1
+Default Output Format [json]: json (Only support json))
+Default Language [zh|en] en:
+Saving profile[profilename] ...Done.
+ available regions:
+  cn-hongkong
+  ap-northeast-1
+  ap-southeast-1
+  ap-southeast-2
+  ap-southeast-3
+  ap-southeast-6
+  ap-southeast-5
+  ap-south-1
+  us-east-1
+  us-west-1
+  eu-west-1
+  me-east-1
+  me-central-1
+  eu-central-1
+
+Configure Done!!!
+..............888888888888888888888 ........=8888888888888888888D=..............
+...........88888888888888888888888 ..........D8888888888888888888888I...........
+.........,8888888888888ZI: ...........................=Z88D8888888888D..........
+.........+88888888 ..........................................88888888D..........
+.........+88888888 .......Welcome to use Alibaba Cloud.......O8888888D..........
+.........+88888888 ............. ************* ..............O8888888D..........
+.........+88888888 .... Command Line Interface(Reloaded) ....O8888888D..........
+.........+88888888...........................................88888888D..........
+..........D888888888888DO+. ..........................?ND888888888888D..........
+...........O8888888888888888888888...........D8888888888888888888888=...........
+............ .:D8888888888888888888.........78888888888888888888O ..............
+```
 3. **Initialize Terraform:**
    ```bash
    terraform init

@@ -114,9 +114,10 @@ Confirm the apply with yes when prompted.
 8. **Verify the Deployment:**
   After the apply completes, verify that the resources were created successfully in the Alibaba Cloud Console. and the kubeconfig file will be generated `config`, copy it to the `~/.kube/config` or the location where you configure kubeconfig and you should be able to access the ACK cluster
 ```bash
-  k get no
-  ![image](https://github.com/mshiekh/alibaba-ack-saudi-region/assets/66517402/5086401a-ed84-4821-b161-4892b444d371)
+  kubectl get no
 ```
+  ![image](https://github.com/mshiekh/alibaba-ack-saudi-region/assets/66517402/5086401a-ed84-4821-b161-4892b444d371)
+
 
 ![image](https://github.com/mshiekh/alibaba-ack-saudi-region/assets/66517402/3c0bbba3-e5b7-4e95-8214-7e8beca82e89)
 

@@ -59,58 +59,65 @@ Example terraform.tfvars:
    follow the steps below and you should get the Welcome message if all is set correctly:
    ```bash
    aliyun configure --profile "profilename"
-   aliyun configure --profile "profilename"
-Configuring profile 'profilename' in '' authenticate mode...
-Access Key Id []: #**Copy and paste your Access key**
-Access Key Secret []: #**Copy and paste your Access key**
-Default Region Id []: me-central-1
-Default Output Format [json]: json (Only support json))
-Default Language [zh|en] en:
-Saving profile[profilename] ...Done.
- available regions:
-  cn-hongkong
-  ap-northeast-1
-  ap-southeast-1
-  ap-southeast-2
-  ap-southeast-3
-  ap-southeast-6
-  ap-southeast-5
-  ap-south-1
-  us-east-1
-  us-west-1
-  eu-west-1
-  me-east-1
-  me-central-1
-  eu-central-1
-
-Configure Done!!!
-..............888888888888888888888 ........=8888888888888888888D=..............
-...........88888888888888888888888 ..........D8888888888888888888888I...........
-.........,8888888888888ZI: ...........................=Z88D8888888888D..........
-.........+88888888 ..........................................88888888D..........
-.........+88888888 .......Welcome to use Alibaba Cloud.......O8888888D..........
-.........+88888888 ............. ************* ..............O8888888D..........
-.........+88888888 .... Command Line Interface(Reloaded) ....O8888888D..........
-.........+88888888...........................................88888888D..........
-..........D888888888888DO+. ..........................?ND888888888888D..........
-...........O8888888888888888888888...........D8888888888888888888888=...........
-............ .:D8888888888888888888.........78888888888888888888O ..............
-```
-3. **Initialize Terraform:**
+   Configuring profile 'profilename' in '' authenticate mode...
+   Access Key Id []: #**Copy and paste your Access key**
+   Access Key Secret []: #**Copy and paste your Access key**
+   Default Region Id []: me-central-1
+   Default Output Format [json]: json (Only support json))
+   Default Language [zh|en] en:
+   Saving profile[profilename] ...Done.
+   available regions:
+    cn-hongkong
+    ap-northeast-1
+    ap-southeast-1
+    ap-southeast-2
+    ap-southeast-3
+    ap-southeast-6
+    ap-southeast-5
+    ap-south-1
+    us-east-1
+    us-west-1
+    eu-west-1
+    me-east-1
+    me-central-1
+    eu-central-1
+    
+    Configure Done!!!
+    ..............888888888888888888888 ........=8888888888888888888D=..............
+    ...........88888888888888888888888 ..........D8888888888888888888888I...........
+    .........,8888888888888ZI: ...........................=Z88D8888888888D..........
+    .........+88888888 ..........................................88888888D..........
+    .........+88888888 .......Welcome to use Alibaba Cloud.......O8888888D..........
+    .........+88888888 ............. ************* ..............O8888888D..........
+    .........+88888888 .... Command Line Interface(Reloaded) ....O8888888D..........
+    .........+88888888...........................................88888888D..........
+    ..........D888888888888DO+. ..........................?ND888888888888D..........
+    ...........O8888888888888888888888...........D8888888888888888888888=...........
+    ............ .:D8888888888888888888.........78888888888888888888O ..............
+    ```
+5. **Initialize Terraform:**
    ```bash
    terraform init
    ```
-4. **Plan the Configuration:**
+6. **Plan the Configuration:**
    ```bash
    terraform plan
    ```
 
-5. **Apply the Configuration:**
+7. **Apply the Configuration:**
    ```bash
    terraform apply
    ```
 
 Confirm the apply with yes when prompted.
 
-6. **Verify the Deployment:**
+8. **Verify the Deployment:**
   After the apply completes, verify that the resources were created successfully in the Alibaba Cloud Console. and the kubeconfig file will be generated `config`, copy it to the `~/.kube/config` or the location where you configure kubeconfig and you should be able to access the ACK cluster
+```bash
+  k get no
+  ![image](https://github.com/mshiekh/alibaba-ack-saudi-region/assets/66517402/5086401a-ed84-4821-b161-4892b444d371)
+```
+
+![image](https://github.com/mshiekh/alibaba-ack-saudi-region/assets/66517402/3c0bbba3-e5b7-4e95-8214-7e8beca82e89)
+
+

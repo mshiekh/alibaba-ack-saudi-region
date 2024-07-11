@@ -54,8 +54,8 @@ Example terraform.tfvars:
 3. **Get the ACCESS_KEY and SECRET_KEY**
    Go to RAM > Click on your user account > unders **AccessKey** click  the button Create Access Key
 
-4. **Use aliyun cli to configure your profile**
-   I found more convenient to set the profile use aliyun cli and then reference it using  `profile` in the provider.tf. You can check the [example usage](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs#example-usage) and use the method you prefer.
+4. **Use aliyun cli to configure your profile**:
+   I found it more convenient to set the profile using aliyun cli and then reference it using  `profile` in the provider.tf. You can check the [example usage](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs#example-usage) and use the method you prefer.
    follow the steps below and you should get the Welcome message if all is set correctly:
    ```bash
    aliyun configure --profile "profilename"
@@ -95,16 +95,16 @@ Example terraform.tfvars:
     ...........O8888888888888888888888...........D8888888888888888888888=...........
     ............ .:D8888888888888888888.........78888888888888888888O ..............
     ```
-5. **Initialize Terraform:**
+6. **Initialize Terraform:**
    ```bash
    terraform init
    ```
-6. **Plan the Configuration:**
+7. **Plan the Configuration:**
    ```bash
    terraform plan
    ```
 
-7. **Apply the Configuration:**
+8. **Apply the Configuration:**
    ```bash
    terraform apply
    ```

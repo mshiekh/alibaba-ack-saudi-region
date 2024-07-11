@@ -39,7 +39,7 @@ This section provides instructions on how to use the Terraform configuration to 
    git clone https://github.com/mshiekh/alibaba-ack-saudi-region.git
    cd alibaba-ack-saudi-region
 2. **Customize Variables:**
-   Edit the variables.tf file or create a terraform.tfvars file to customize the variables such as the VSwitch ID:
+   Edit the variables.tf file or create a terraform.tfvars file to customize the variables such as the cluster_name, VPC_CIDR, vswitch_CIDR:
    ```bash
    nano terraform.tfvars
 

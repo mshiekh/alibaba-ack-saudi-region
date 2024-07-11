@@ -86,7 +86,7 @@ variable "worker_memory_size" {
 variable "ack_version" {
   description = "Desired Kubernetes version"
   type        = string
-  default     = ""
+  default     = "1.30.1-aliyun.1"
 }
 
 variable "cluster_addons" {
